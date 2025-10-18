@@ -1,0 +1,64 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyMDt2oJsJEiox0iStf0EOVC",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/nesredingebeyehu15-dot/My-AI-Engineering-Journey/blob/main/Day%2013%3A%20Start%20Module%202%20-%20Intro%20to%20NumPy%20for%20fast%20calculations\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "gLyosqtlEagp",
+        "outputId": "8dc96123-ca67-4f5c-f434-8ba488164510"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "-------our_C++_teacher_add_bonous for all of us \n",
+            "the grade after adding bonus are:[100  94  72  25  78]\n",
+            "highest original grades are:95\n",
+            "lowest original grades are:20\n",
+            "average original grades are:68.8\n"
+          ]
+        }
+      ],
+      "source": [
+        "print(\"-------our_C++_teacher_add_bonous for all of us \")\n",
+        "import numpy as np\n",
+        "grade_of_c=np.array([95,89,67,20,73,])\n",
+        "bonus_grades=grade_of_c +  5\n",
+        "print(f\"the grade after adding bonus are:{bonus_grades}\")\n",
+        "print(f\"highest original grades are:{grade_of_c.max( )}\")\n",
+        "print(f\"lowest original grades are:{grade_of_c.min( )}\")\n",
+        "print(f\"average original grades are:{grade_of_c.mean( )}\")"
+      ]
+    }
+  ]
+}
