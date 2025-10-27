@@ -1,0 +1,132 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyPx7lSPKDRUgGLaNmYm4qTT",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/nesredingebeyehu15-dot/My-AI-Engineering-Journey/blob/main/module-02-Data-Science-Foundations/Day-26%20%26%2027-pandas-Merging.%20ipynb\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "J2uj4sHwZ04T",
+        "outputId": "e4e0a465-4959-483c-cb0a-31dc1def6f13"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "--- 1. Our Two Separate Datasets ---\n",
+            "\n",
+            "A) The Products Table:\n",
+            "   product_id product_name\n",
+            "0           1       Laptop\n",
+            "1           2        Mouse\n",
+            "2           3     Keyboard\n",
+            "3           4      Monitor\n",
+            "\n",
+            "B) The Sales Table:\n",
+            "   sale_id  product_id  quantity\n",
+            "0     1001           2         5\n",
+            "1     1002           1         2\n",
+            "2     1003           2         3\n",
+            "3     1004           3         4\n",
+            "\n",
+            "========================================\n",
+            "\n",
+            "--- 2. Merging the Datasets... ---\n",
+            "Merge successful!\n",
+            "\n",
+            "========================================\n",
+            "\n",
+            "--- 3. The Final, Combined Report ---\n",
+            "   product_id product_name  sale_id  quantity\n",
+            "0           1       Laptop     1002         2\n",
+            "1           2        Mouse     1001         5\n",
+            "2           2        Mouse     1003         3\n",
+            "3           3     Keyboard     1004         4\n",
+            "\n",
+            "========================================\n",
+            "\n",
+            "Analysis Complete: We now have a unified view of our sales data.\n"
+          ]
+        }
+      ],
+      "source": [
+        "# ==========================================================\n",
+        "# DAY:     26 & 27\n",
+        "# PROJECT: Merging Sales and Product Data\n",
+        "# GOAL:    To combine two separate datasets to get a complete\n",
+        "#          view of which product was sold in each transaction.\n",
+        "# ==========================================================\n",
+        "import pandas as pd\n",
+        "\n",
+        "# --- STEP 1: SETUP - We have two separate pieces of information ---\n",
+        "\n",
+        "# DataFrame 1: Product Information (Tells us WHAT each product_id means)\n",
+        "products_df = pd.DataFrame({\n",
+        "    'product_id': [1, 2, 3, 4],\n",
+        "    'product_name': ['Laptop', 'Mouse', 'Keyboard', 'Monitor']\n",
+        "})\n",
+        "\n",
+        "# DataFrame 2: Sales Information (Tells us WHICH product_id was sold)\n",
+        "sales_df = pd.DataFrame({\n",
+        "    'sale_id': [1001, 1002, 1003, 1004],\n",
+        "    'product_id': [2, 1, 2, 3],\n",
+        "    'quantity': [5, 2, 3, 4]\n",
+        "})\n",
+        "\n",
+        "print(\"--- 1. Our Two Separate Datasets ---\")\n",
+        "print(\"\\nA) The Products Table:\")\n",
+        "print(products_df)\n",
+        "print(\"\\nB) The Sales Table:\")\n",
+        "print(sales_df)\n",
+        "print(\"\\n\" + \"=\"*40 + \"\\n\") # A nice separator\n",
+        "\n",
+        "# --- STEP 2: THE MERGE - Combining the data to tell a story ---\n",
+        "# PROBLEM: The Sales table only has 'product_id', which is not human-readable.\n",
+        "# SOLUTION: We merge it with the Products table to bring in the 'product_name'.\n",
+        "# Pandas is smart enough to find the common column ('product_id') automatically.\n",
+        "\n",
+        "print(\"--- 2. Merging the Datasets... ---\")\n",
+        "full_sales_data = pd.merge(products_df, sales_df)\n",
+        "print(\"Merge successful!\")\n",
+        "print(\"\\n\" + \"=\"*40 + \"\\n\")\n",
+        "\n",
+        "# --- STEP 3: THE RESULT - A complete and understandable report ---\n",
+        "# NOW, we can easily see which product was sold in each transaction.\n",
+        "# For example, we can now see that sale 1001 was for a 'Mouse'.\n",
+        "\n",
+        "print(\"--- 3. The Final, Combined Report ---\")\n",
+        "print(full_sales_data)\n",
+        "print(\"\\n\" + \"=\"*40 + \"\\n\")\n",
+        "print(\"Analysis Complete: We now have a unified view of our sales data.\")"
+      ]
+    }
+  ]
+}
