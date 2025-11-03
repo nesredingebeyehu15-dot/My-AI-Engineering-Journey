@@ -33,4 +33,4 @@ This repository is organized into modules, reflecting my learning path.
 ## 👨‍💻 About Me
 I am a Computer Science student at Jimma University, driven by a passion for technology and aviation. My goal is not just to learn, but to **build** and **solve problems**.
 
-Connect with me on [LinkedIn](YOUR_LINKEDIN_URL_HERE)! *(Note: We will create this later)*
+Connect with me on [LinkedIn](https://www.linkedin.com/in/nesredingebeyehu)
