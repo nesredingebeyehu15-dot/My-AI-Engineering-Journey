@@ -4,7 +4,7 @@ Welcome to my official 3-year journey to become a world-class AI/ML Engineer! Th
 
 **My Ultimate Goal:** To achieve a **$7,000/month** income as a professional AI/ML Engineer and to pursue my dream of becoming a Pilot.
 
-**My Strategy:** A consistent, daily effort of 3 hours, guided by my AI Mentor.
+**My Strategy:** A consistent, daily effort of 3.5 hours, guided by my AI Mentor.
 
 ---
 
