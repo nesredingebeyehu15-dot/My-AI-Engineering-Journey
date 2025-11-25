@@ -1,0 +1,101 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyME2nSsEouiNgKJndhqR+Fw",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/nesredingebeyehu15-dot/My-AI-Engineering-Journey/blob/main/%20Day_01_Foundation.py%20\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# DAY 1: THE FOUNDATION\n",
+        "import pandas as pd\n",
+        "\n",
+        "# 1. LISTS (የመረጃ ዝርዝር)\n",
+        "names = [\"Abebe\", \"Kebede\", \"Sara\", \"Marta\"]\n",
+        "ages = [25, 30, 22, 28]\n",
+        "salaries = [5000, 7000, 4500, 8000]\n",
+        "cities= [\"Addis Ababa\", \"Bahir Dar\", \"Gondar\", \"Hawassa\"]\n",
+        "# 2. DICTIONARY (መረጃን ማገናኘት - Key: Value)\n",
+        "# This is how 99% of data starts before it becomes a DataFrame\n",
+        "data = {\n",
+        "    \"Name\": names,\n",
+        "    \"Age\": ages,\n",
+        "    \"Salary\": salaries,\n",
+        "    \"city\": cities,\n",
+        "}\n",
+        "\n",
+        "print(\"--- RAW DICTIONARY ---\")\n",
+        "print(data)\n",
+        "# 3. CONVERT TO DATAFRAME (The Magic Step)\n",
+        "df = pd.DataFrame(data)\n",
+        "\n",
+        "print(\"\\n--- PANDAS DATAFRAME (The Table) ---\")\n",
+        "print(df)\n",
+        "\n",
+        "# 4. BASIC INSPECTION (ማየት)\n",
+        "print(\"\\n--- Shape (Rows, Columns) ---\")\n",
+        "print(df.shape) # (4, 3) ማለት 4 ሰው፣ 3 መረጃ\n",
+        "\n",
+        "print(\"\\n--- Data Types (ወሳኝ ነው!) ---\")\n",
+        "print(df.dtypes) # Object = Text, int64 = Number"
+      ],
+      "metadata": {
+        "id": "QNAkcN4E6Z6h",
+        "outputId": "80cf8535-3b68-413b-d7b5-00dfc8ed1faf",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "execution_count": 9,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "--- RAW DICTIONARY ---\n",
+            "{'Name': ['Abebe', 'Kebede', 'Sara', 'Marta'], 'Age': [25, 30, 22, 28], 'Salary': [5000, 7000, 4500, 8000], 'city': ['Addis Ababa', 'Bahir Dar', 'Gondar', 'Hawassa']}\n",
+            "\n",
+            "--- PANDAS DATAFRAME (The Table) ---\n",
+            "     Name  Age  Salary         city\n",
+            "0   Abebe   25    5000  Addis Ababa\n",
+            "1  Kebede   30    7000    Bahir Dar\n",
+            "2    Sara   22    4500       Gondar\n",
+            "3   Marta   28    8000      Hawassa\n",
+            "\n",
+            "--- Shape (Rows, Columns) ---\n",
+            "(4, 4)\n",
+            "\n",
+            "--- Data Types (ወሳኝ ነው!) ---\n",
+            "Name      object\n",
+            "Age        int64\n",
+            "Salary     int64\n",
+            "city      object\n",
+            "dtype: object\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
