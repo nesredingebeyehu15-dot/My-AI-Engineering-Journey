@@ -1,0 +1,105 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyO8g4mmdQor8nBvoVnkPDPC",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/nesredingebeyehu15-dot/My-AI-Engineering-Journey/blob/main/Day_03_Cleaning_Challenge.py%20Me\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "STm5mmnEwQhi",
+        "outputId": "355e58c6-e7ec-41c6-92ee-7654bd44035e"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "--- RAW DATA ---\n",
+            "  product    price\n",
+            "0      tv  10000.0\n",
+            "1   radio    500.0\n",
+            "2      tv  10000.0\n",
+            "3     NaN   2000.0\n",
+            "4   phone      NaN\n",
+            "\n",
+            "\n",
+            "--- AFTER REMOVING DUPLICATES ---\n",
+            "  product    price\n",
+            "0      tv  10000.0\n",
+            "1   radio    500.0\n",
+            "3     NaN   2000.0\n",
+            "4   phone      NaN\n",
+            "\n",
+            "\n",
+            "--- FINAL CLEAN DATA (Filled Price with 5250.0) ---\n",
+            "  product    price\n",
+            "0      tv  10000.0\n",
+            "1   radio    500.0\n",
+            "4   phone   5250.0\n"
+          ]
+        }
+      ],
+      "source": [
+        "# DAY 3 CHALLENGE: SOLVED & FIXED\n",
+        "import numpy as np\n",
+        "import pandas as pd  # 1. Fixed 'pandas'\n",
+        "\n",
+        "# 1. CREATE DIRTY DATA\n",
+        "product_data = {\n",
+        "    'product': ['tv', 'radio', 'tv', np.nan, 'phone'],\n",
+        "    'price': [10000, 500, 10000, 2000, np.nan]\n",
+        "}  # 2. Added comma above\n",
+        "\n",
+        "print(\"--- RAW DATA ---\")\n",
+        "df = pd.DataFrame(product_data) # 3. Fixed Indentation\n",
+        "print(df)\n",
+        "print(\"\\n\")\n",
+        "\n",
+        "# 2. REMOVE DUPLICATES\n",
+        "df_clean = df.drop_duplicates()\n",
+        "print(\"--- AFTER REMOVING DUPLICATES ---\")\n",
+        "print(df_clean)\n",
+        "print(\"\\n\")\n",
+        "\n",
+        "# 3. HANDLING MISSING PRODUCT (Drop)\n",
+        "# ስም የሌለውን እቃ እናጠፋለን\n",
+        "df_clean = df_clean.dropna(subset=['product']) # 4. Added quotes ['product']\n",
+        "\n",
+        "# 4. HANDLING MISSING PRICE (Fill)\n",
+        "# ዋጋ የሌለውን በአማካይ እንሞላለን\n",
+        "mean_price = df_clean['price'].mean() # 5. Added parentheses ()\n",
+        "df_clean['price'] = df_clean['price'].fillna(mean_price) # 6. Fixed spelling 'fillna'\n",
+        "\n",
+        "print(f\"--- FINAL CLEAN DATA (Filled Price with {mean_price}) ---\")\n",
+        "print(df_clean)"
+      ]
+    }
+  ]
+}
